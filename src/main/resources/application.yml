@@ -1,0 +1,14 @@
+server:
+  port: 8082
+  
+jwtUrl: http://localhost:9081  
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 364520571875-t3cjtcra85chc1hgniv3ltkb8q1sgcf1.apps.googleusercontent.com
+            client-secret: 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
+            
