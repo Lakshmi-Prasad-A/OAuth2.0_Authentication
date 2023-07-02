@@ -42,11 +42,13 @@ public class UserController {
 	}
 
 	@GetMapping("/oauth2authentication")
-	public AuthenticationResponse gooogleauthAuthentication(@RequestParam("isToValidatePassword") boolean isToValidatePassword, OAuth2AuthenticationToken authentication) {
+	public AuthenticationResponse gooogleOAuthAuthentication(
+			@RequestParam("isToValidatePassword") boolean isToValidatePassword,
+			OAuth2AuthenticationToken authentication) {
 
 		OAuth2User authentication1 = authentication.getPrincipal();
 		String email = null;
-		
+
 		if (authentication1 instanceof DefaultOAuth2User) {
 			DefaultOAuth2User oauth2User = (DefaultOAuth2User) authentication.getPrincipal();
 			email = oauth2User.getAttribute("email");
@@ -57,11 +59,10 @@ public class UserController {
 		authenticationRequest.setIsToValidatePassword(isToValidatePassword);
 		return jwtAuthentication(authenticationRequest);
 	}
-	
 
 	@PostMapping("/jwtToken")
 	public AuthenticationResponse jwtAuthentication(@RequestBody AuthenticationRequest authenticationRequest) {
-		return restTemplate.postForObject(jwtUrl+"/authenticate", authenticationRequest,
+		return restTemplate.postForObject(jwtUrl + "/authenticate", authenticationRequest,
 				AuthenticationResponse.class);
 	}
 }
