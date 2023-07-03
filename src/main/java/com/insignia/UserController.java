@@ -18,7 +18,7 @@ import com.insignia.model.AuthenticationRequest;
 import com.insignia.model.AuthenticationResponse;
 
 @RestController
-@CrossOrigin(origins = "https://oauth.insigniaconsultancy.com:8082")
+@CrossOrigin(origins = "https://oauth.insigniaconsultancy.com:9082")
 public class UserController {
 
 	@Autowired
