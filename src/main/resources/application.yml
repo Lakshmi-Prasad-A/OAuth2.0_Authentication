@@ -12,4 +12,5 @@ spring:
           google:
             client-id: 364520571875-t3cjtcra85chc1hgniv3ltkb8q1sgcf1.apps.googleusercontent.com
             client-secret: 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
+            redirect-uri : https://oauth.insigniaconsultancy.com:8082/login/oauth2/code/google
             
